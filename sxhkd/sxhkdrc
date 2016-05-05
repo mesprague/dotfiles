@@ -1,0 +1,106 @@
+#
+# bspwm hotkeys
+#
+
+
+super + {_,shift +}tab
+	bspc desktop -b {next,prev}
+
+
+super + alt + Escape
+	bspc quit
+
+#reload config file
+super + Escape
+	pkill -USR1 -x sxhkd
+
+super + w
+	bspc node -c
+
+super + t
+	bspc desktop -l next
+
+super + b
+	bspc desktop -B 
+
+super + {s,f}
+bspc node -t {floating,fullscreen}
+
+super + {grave,Tab}
+	bspc {node,desktop} -f last
+
+super + apostrophe
+	bspc node  -s last
+
+super + {o,i}
+	bspc control --record-history off; \
+	bspc node  {older,newer} -f; \
+	bspc control --record-history on
+
+#super + y
+#	bspc window -w last.manual
+
+super + m
+	bspc node -s biggest
+
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {east,south,north,west}
+
+super + {_,shift + }c
+	bspc node -f {next,prev}
+
+super + {comma,period}
+	bspc desktop -C {backward,forward}
+
+super + bracket{left,right}
+	bspc desktop -f {prev,next}
+
+super + ctrl + {h,j,k,l}
+	bspc node -p {east,south,north,west}
+
+super + ctrl + {_,shift + }space
+	bspc {node -p cancel,desktop -c}
+
+#super + alt + {h,j,k,l}
+#	bspc window -e {left -10,down +10,up -10,right +10}
+
+#super + alt + shift + {h,j,k,l}
+#	bspc window -e {right -10,up +10,down -10,left +10}
+
+super + ctrl + {1-9}
+	bspc node -r 0.{1-9} 
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} ^{1-9,10}
+
+ 
+
+
+~button1
+	bspc pointer -g focus
+
+super + button{1-3}
+	bspc pointer -g {move,resize_side,resize_corner}
+
+super + ~button{1-3}
+	bspc pointer -t %i %ix
+
+super + @button{1-3}
+	bspc pointer -u
+
+#
+# wm independent hotkeys
+#
+
+super + Return
+	subl3
+
+super + shift + Return
+	chromium --disk-cache-dir=${XDG_RUNTIME_DIR:-"~/.cache"} --start-maximized
+
+super + space
+	qterminal
+
+super + shift + space
+   tilda
+
