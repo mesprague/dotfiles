@@ -1,0 +1,8 @@
+ 
+#xprofile executes ui components
+
+sxhkd &
+#compton -bcCGf
+#synapse -s &
+nitrogen --restore &
+
